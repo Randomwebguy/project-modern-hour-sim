@@ -1,0 +1,4 @@
+#pragma once
+namespace GenZH::Modern {
+inline constexpr char AtmosphereShaderSource[]=R"GENZH(@GENZH_ATMOSPHERE_SHADER_SOURCE@)GENZH";
+}

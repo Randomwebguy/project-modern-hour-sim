@@ -1,0 +1,3 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+#pragma once
+namespace GenZH::Modern { inline constexpr char BloomShaderSource[]=R"GENZH(@GENZH_BLOOM_SHADER@)GENZH"; }

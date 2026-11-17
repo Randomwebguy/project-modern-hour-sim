@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/crosire/d3d8to9",
+  "commit": "255338f698c8270b537f0a91a13f795f4f988250",
+  "role": "x64 legacy resource and state compatibility; scene drawing remains D3D11",
+  "modified": true
+}

@@ -1,0 +1,3 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+#pragma once
+namespace GenZH::Modern { inline constexpr char TemporalAAShaderSource[]=R"GENZH(@GENZH_TEMPORAL_AA_SHADER@)GENZH"; }

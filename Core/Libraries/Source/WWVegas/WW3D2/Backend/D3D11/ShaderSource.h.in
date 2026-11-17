@@ -1,0 +1,6 @@
+#pragma once
+namespace GenZH::Modern {
+inline constexpr char ShaderSource[] = R"GENZH_SHADER(
+@GENZH_D3D11_SHADER_SOURCE@
+)GENZH_SHADER";
+}

@@ -1,0 +1,411 @@
+# Project Modern Hour - zh-sim source
+
+Modified version of TheSuperHackers/GeneralsGameCode (the Command & Conquer Generals Zero Hour source code released
+by Electronic Arts under GPLv3 with additional terms, see LICENSE.md). Not made, endorsed or supported by Electronic Arts.
+
+Upstream base: b805c12ee1aedc0a4b241006803b8e04bbf288a6 Mon Oct 5 22:32:53 2026 +0200
+Exported: 2026-11-17 15:07
+
+## Changed files (against the upstream base)
+- M  CMakeLists.txt
+- M  Core/GameEngine/Include/Common/GameAudio.h
+- M  Core/GameEngine/Include/GameClient/FXList.h
+- M  Core/GameEngine/Include/GameClient/GameWindow.h
+- M  Core/GameEngine/Include/GameClient/WindowVideoManager.h
+- M  Core/GameEngine/Include/GameNetwork/ConnectionManager.h
+- M  Core/GameEngine/Source/Common/Audio/GameAudio.cpp
+- M  Core/GameEngine/Source/Common/CommandLine.cpp
+- M  Core/GameEngine/Source/Common/INI/INI.cpp
+- M  Core/GameEngine/Source/Common/System/ArchiveFileSystem.cpp
+- M  Core/GameEngine/Source/Common/System/Debug.cpp
+- M  Core/GameEngine/Source/Common/System/FileSystem.cpp
+- M  Core/GameEngine/Source/Common/System/GameMemory.cpp
+- M  Core/GameEngine/Source/Common/System/LocalFile.cpp
+- M  Core/GameEngine/Source/Common/System/MiniDumper.cpp
+- M  Core/GameEngine/Source/Common/Thing/ThingTemplate.cpp
+- M  Core/GameEngine/Source/GameClient/FXList.cpp
+- M  Core/GameEngine/Source/GameClient/GUI/GUICallbacks/InGameChat.cpp
+- M  Core/GameEngine/Source/GameClient/GUI/GameFont.cpp
+- M  Core/GameEngine/Source/GameClient/GUI/GameWindowManagerScript.cpp
+- M  Core/GameEngine/Source/GameClient/GUI/IMEManager.cpp
+- M  Core/GameEngine/Source/GameClient/MessageStream/CommandXlat.cpp
+- M  Core/GameEngine/Source/GameClient/RadiusDecal.cpp
+- M  Core/GameEngine/Source/GameLogic/Map/SidesList.cpp
+- M  Core/GameEngine/Source/GameLogic/System/GameLogicDispatch.cpp
+- M  Core/GameEngine/Source/GameNetwork/ConnectionManager.cpp
+- M  Core/GameEngine/Source/GameNetwork/Network.cpp
+- M  Core/GameEngineDevice/CMakeLists.txt
+- M  Core/GameEngineDevice/Include/W3DDevice/GameClient/Module/W3DModelDraw.h
+- M  Core/GameEngineDevice/Include/W3DDevice/GameClient/W3DDisplayString.h
+- M  Core/GameEngineDevice/Include/W3DDevice/GameClient/W3DGUICallbacks.h
+- M  Core/GameEngineDevice/Include/W3DDevice/GameClient/W3DScorch.h
+- M  Core/GameEngineDevice/Include/W3DDevice/GameClient/W3DTerrainBackground.h
+- M  Core/GameEngineDevice/Source/W3DDevice/Common/System/W3DFunctionLexicon.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/BaseHeightMap.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/Drawable/Draw/W3DModelDraw.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/GUI/GUICallbacks/W3DMainMenu.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/GUI/Gadget/W3DPushButton.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/GUI/W3DGameFont.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/HeightMap.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/TerrainTex.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/W3DDebugIcons.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/W3DDisplay.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/W3DDisplayString.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/W3DScorch.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/W3DSmudge.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/W3DSnow.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/W3DTerrainBackground.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/W3DTerrainTracks.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/W3DTerrainVisual.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/W3DTreeBuffer.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/Water/W3DWater.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/Water/W3DWaterTracks.cpp
+- M  Core/GameEngineDevice/Source/W3DDevice/GameClient/WorldHeightMap.cpp
+- M  Core/GameEngineDevice/Source/Win32Device/Common/Win32BIGFileSystem.cpp
+- M  Core/GameEngineDevice/Source/Win32Device/Common/Win32LocalFileSystem.cpp
+- M  Core/Libraries/Source/Compression/EAC/huffencode.cpp
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/BridgeFileChecks.cpp
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/CMakeLists.txt
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/CompatibilityRenderer.cpp
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/CompatibilityRenderer.h
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/DeviceBridge.cpp
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/DeviceBridge.h
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/DeviceForwarders.inl
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/LegacyDraw.cpp
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/LegacyDraw.h
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/LegacyScene.hlsl
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/LegacyShaderSource.h.in
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/LinkCheck.cpp
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/MaterialLighting.hlsl
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/README.md
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/RenderDevice.cpp
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/RenderDevice.h
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/Scene.hlsl
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ShaderSource.h.in
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainGeometry.hlsl
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainSurface.cpp
+- A  Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainSurface.h
+- M  Core/Libraries/Source/WWVegas/WW3D2/CMakeLists.txt
+- M  Core/Libraries/Source/WWVegas/WW3D2/dx8indexbuffer.cpp
+- M  Core/Libraries/Source/WWVegas/WW3D2/dx8indexbuffer.h
+- M  Core/Libraries/Source/WWVegas/WW3D2/dx8polygonrenderer.h
+- M  Core/Libraries/Source/WWVegas/WW3D2/dx8renderer.cpp
+- M  Core/Libraries/Source/WWVegas/WW3D2/dx8renderer.h
+- M  Core/Libraries/Source/WWVegas/WW3D2/dx8vertexbuffer.cpp
+- M  Core/Libraries/Source/WWVegas/WW3D2/dx8vertexbuffer.h
+- M  Core/Libraries/Source/WWVegas/WW3D2/dx8wrapper.cpp
+- M  Core/Libraries/Source/WWVegas/WW3D2/dx8wrapper.h
+- M  Core/Libraries/Source/WWVegas/WW3D2/dynamesh.cpp
+- M  Core/Libraries/Source/WWVegas/WW3D2/intersec.h
+- M  Core/Libraries/Source/WWVegas/WW3D2/line3d.cpp
+- M  Core/Libraries/Source/WWVegas/WW3D2/pointgr.cpp
+- M  Core/Libraries/Source/WWVegas/WW3D2/render2dsentence.cpp
+- M  Core/Libraries/Source/WWVegas/WW3D2/render2dsentence.h
+- M  Core/Libraries/Source/WWVegas/WW3D2/rendobj.h
+- M  Core/Libraries/Source/WWVegas/WW3D2/ringobj.cpp
+- M  Core/Libraries/Source/WWVegas/WW3D2/seglinerenderer.cpp
+- M  Core/Libraries/Source/WWVegas/WW3D2/sortingrenderer.cpp
+- M  Core/Libraries/Source/WWVegas/WW3D2/sortingrenderer.h
+- M  Core/Libraries/Source/WWVegas/WW3D2/sphereobj.cpp
+- M  Core/Libraries/Source/WWVegas/WW3D2/streakRender.cpp
+- M  Core/Libraries/Source/WWVegas/WW3D2/surfaceclass.cpp
+- M  Core/Libraries/Source/WWVegas/WW3D2/texture.cpp
+- M  Core/Libraries/Source/WWVegas/WWLib/CMakeLists.txt
+- M  Core/Libraries/Source/WWVegas/WWLib/Except.h
+- M  Core/Libraries/Source/WWVegas/WWLib/mempool.h
+- M  Core/Libraries/Source/WWVegas/WWLib/rawfile.cpp
+- M  Core/Libraries/Source/WWVegas/WWMath/Vector3i.h
+- M  Core/Libraries/Source/WWVegas/WWSaveLoad/persistfactory.h
+- M  Core/Libraries/Source/debug/CMakeLists.txt
+- M  Core/Libraries/Source/debug/debug_debug.cpp
+- M  Core/Libraries/Source/debug/debug_debug.h
+- M  Core/Libraries/Source/debug/debug_stack.h
+- M  Generals/Code/GameEngine/Include/Common/GlobalData.h
+- M  Generals/Code/GameEngine/Source/Common/GlobalData.cpp
+- M  Generals/Code/GameEngineDevice/CMakeLists.txt
+- M  Generals/Code/GameEngineDevice/Source/W3DDevice/GameClient/W3DRoadBuffer.cpp
+- M  Generals/Code/Libraries/Source/WWVegas/WW3D2/CMakeLists.txt
+- M  Generals/Code/Libraries/Source/WWVegas/WW3D2/ddsfile.cpp
+- M  Generals/Code/Libraries/Source/WWVegas/WW3D2/ddsfile.h
+- M  Generals/Code/Libraries/Source/WWVegas/WW3D2/mesh.cpp
+- M  Generals/Code/Libraries/Source/WWVegas/WW3D2/meshgeometry.h
+- M  Generals/Code/Libraries/Source/WWVegas/WW3D2/meshmatdesc.cpp
+- M  Generals/Code/Libraries/Source/WWVegas/WW3D2/meshmatdesc.h
+- M  Generals/Code/Libraries/Source/WWVegas/WW3D2/meshmdl.h
+- M  Generals/Code/Main/RTS.RC
+- M  GeneralsMD/Code/GameEngine/CMakeLists.txt
+- M  GeneralsMD/Code/GameEngine/Include/Common/GlobalData.h
+- M  GeneralsMD/Code/GameEngine/Include/Common/Player.h
+- M  GeneralsMD/Code/GameEngine/Include/Common/StackDump.h
+- M  GeneralsMD/Code/GameEngine/Include/GameLogic/Locomotor.h
+- M  GeneralsMD/Code/GameEngine/Include/GameLogic/LocomotorSet.h
+- M  GeneralsMD/Code/GameEngine/Include/GameLogic/Module/AIUpdate.h
+- M  GeneralsMD/Code/GameEngine/Include/GameLogic/Module/DeliverPayloadAIUpdate.h
+- M  GeneralsMD/Code/GameEngine/Include/GameLogic/Module/MissileAIUpdate.h
+- M  GeneralsMD/Code/GameEngine/Include/GameLogic/Module/NeutronMissileUpdate.h
+- M  GeneralsMD/Code/GameEngine/Include/GameLogic/Module/ParachuteContain.h
+- M  GeneralsMD/Code/GameEngine/Include/GameLogic/Module/SpecialAbilityUpdate.h
+- M  GeneralsMD/Code/GameEngine/Include/GameLogic/WeaponSet.h
+- M  GeneralsMD/Code/GameEngine/Source/Common/GameEngine.cpp
+- M  GeneralsMD/Code/GameEngine/Source/Common/GameLOD.cpp
+- M  GeneralsMD/Code/GameEngine/Source/Common/GlobalData.cpp
+- M  GeneralsMD/Code/GameEngine/Source/Common/RTS/ActionManager.cpp
+- M  GeneralsMD/Code/GameEngine/Source/Common/RTS/Energy.cpp
+- M  GeneralsMD/Code/GameEngine/Source/Common/RTS/Player.cpp
+- M  GeneralsMD/Code/GameEngine/Source/Common/Recorder.cpp
+- M  GeneralsMD/Code/GameEngine/Source/Common/System/BuildAssistant.cpp
+- M  GeneralsMD/Code/GameEngine/Source/Common/System/StackDump.cpp
+- M  GeneralsMD/Code/GameEngine/Source/Common/System/Upgrade.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameClient/Drawable.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameClient/Eva.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameClient/InGameUI.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameLogic/Object/Contain/ParachuteContain.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameLogic/Object/Locomotor.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameLogic/Object/Object.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameLogic/Object/SpecialPower/SpecialPowerModule.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameLogic/Object/Update/AIUpdate.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameLogic/Object/Update/AIUpdate/DeliverPayloadAIUpdate.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameLogic/Object/Update/AutoDepositUpdate.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameLogic/Object/Update/EMPUpdate.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameLogic/Object/Update/ProductionExitUpdate/DefaultProductionExitUpdate.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameLogic/Object/Update/ProductionExitUpdate/QueueProductionExitUpdate.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameLogic/Object/Update/ProductionExitUpdate/SupplyCenterProductionExitUpdate.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameLogic/Object/Weapon.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameLogic/Object/WeaponSet.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameLogic/ScriptEngine/ScriptConditions.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameLogic/ScriptEngine/ScriptEngine.cpp
+- M  GeneralsMD/Code/GameEngine/Source/GameLogic/System/GameLogic.cpp
+- M  GeneralsMD/Code/GameEngineDevice/CMakeLists.txt
+- M  GeneralsMD/Code/GameEngineDevice/Include/W3DDevice/GameClient/W3DBridgeBuffer.h
+- M  GeneralsMD/Code/GameEngineDevice/Include/W3DDevice/GameClient/W3DBufferManager.h
+- M  GeneralsMD/Code/GameEngineDevice/Include/W3DDevice/GameClient/W3DRoadBuffer.h
+- M  GeneralsMD/Code/GameEngineDevice/Include/W3DDevice/GameClient/W3DVolumetricShadow.h
+- M  GeneralsMD/Code/GameEngineDevice/Source/W3DDevice/GameClient/Shadow/W3DBufferManager.cpp
+- M  GeneralsMD/Code/GameEngineDevice/Source/W3DDevice/GameClient/Shadow/W3DProjectedShadow.cpp
+- M  GeneralsMD/Code/GameEngineDevice/Source/W3DDevice/GameClient/Shadow/W3DVolumetricShadow.cpp
+- M  GeneralsMD/Code/GameEngineDevice/Source/W3DDevice/GameClient/W3DBibBuffer.cpp
+- M  GeneralsMD/Code/GameEngineDevice/Source/W3DDevice/GameClient/W3DBridgeBuffer.cpp
+- M  GeneralsMD/Code/GameEngineDevice/Source/W3DDevice/GameClient/W3DInGameUI.cpp
+- M  GeneralsMD/Code/GameEngineDevice/Source/W3DDevice/GameClient/W3DRoadBuffer.cpp
+- M  GeneralsMD/Code/GameEngineDevice/Source/W3DDevice/GameClient/W3DShroud.cpp
+- M  GeneralsMD/Code/GameEngineDevice/Source/W3DDevice/GameClient/W3DStatusCircle.cpp
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/CMakeLists.txt
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/assetmgr.cpp
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/boxrobj.cpp
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/dazzle.cpp
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/ddsfile.cpp
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/ddsfile.h
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/decalmsh.cpp
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/decalmsh.h
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/linegrp.cpp
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/mesh.cpp
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/meshgeometry.cpp
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/meshgeometry.h
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/meshmatdesc.cpp
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/meshmatdesc.h
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/meshmdl.cpp
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/meshmdl.h
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/meshmdlio.cpp
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/render2d.cpp
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/render2d.h
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/vertmaterial.cpp
+- M  GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/vertmaterial.h
+- M  GeneralsMD/Code/Main/CMakeLists.txt
+- M  GeneralsMD/Code/Main/RTS.RC
+- M  GeneralsMD/Code/Main/WinMain.cpp
+- M  cmake/lzhl.cmake
+- M  cmake/zlib.cmake
+
+## Added files
+- Core/GameEngine/Include/Common/ModelLoadDiagnostics.h
+- Core/GameEngine/Include/Common/SkirmishCheats.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/Atmosphere.hlsl
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/AtmosphereCommon.hlsl
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/AtmosphereDrawPolicy.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/AtmosphereGPU.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/AtmosphereGPU.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/AtmosphereShaderSource.h.in
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/BinaryStateKey.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/Bloom.hlsl
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/BloomGPU.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/BloomGPU.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/BloomGPUChecks.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/BloomShaderSource.h.in
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ByteEquality.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/Capture80Checks.inl
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/CaptureWorkTelemetry.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/CloudHistory.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/CloudLayer.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/CloudNoise.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ColourGrade.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ConstantUploadCache.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/CopyRectsRepeat.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/DeferredFixedWrites.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/DeferredLegacyBuffer.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/DerivedFixedState.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/DirectionalPCSS.hlsl
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/DrawGrouping.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/EnvironmentGPU.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/EnvironmentLighting.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/GTAO.hlsl
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/GTAOGPU.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/GTAOGPU.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/GTAOShaderSource.h.in
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/GeometryCache.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/GeometryMemoryBudget.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/GeometryMemoryMonitor.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/GpuFrameTimer.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/GpuPassTimer.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/GpuPipelineStats.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/GroundBlockRegistry.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/LegacyDepthSort80.inl
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/LegacyUtilities64.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/LoadTelemetry.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/LocalLightShadows.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/LocalLightShadows.hlsl
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/LocalShadowBindings.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/LocalShadowGPU.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/LocalSurfaceLightingGPU.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/LocalVolumetricLights.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/MaterialMemoryBudget.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/MaterialPreparation.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/MaterialPreparation.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/MaterialStreaming.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/MaterialStreaming.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/MaterialUploadChecks.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeAssetChecks.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeDDS.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeFixedState.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeGeometryChecks.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeImage.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeImage.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeLegacyPacking.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeLightCalibration.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeLightCalibration.hlsl
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeLightCalibrationGPU.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeMeshGeometry.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeMeshSubmit.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeSceneCapture.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeSceneIdentity.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeShaderCacheDigest.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeSharedGeometry.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeStateMirror.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeSubmitChecks.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeSubmitGate.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeSubmitTestDevice.inl
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/NativeSurface.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/OpaqueShadowPolicy.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/OpaqueShadowShaderSource.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/OpaqueSortPolicy.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/OrderedSortBatch.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/PagedSceneQueue.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/Photo107Checks.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/PresentChecks.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/PresentedFrameTelemetry.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ProgramSource.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ResolvedPipelineStates.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ResourcePortChecks64.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/RuntimeCameraChecks.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/RuntimeSwitches.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/SceneConstantArena.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/SceneDepth.hlsl
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/SceneDepthGPU.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/SceneDepthGPU.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/SceneDepthShaderSource.h.in
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/SceneGroup.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ScenePipelineBindings.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/SceneQueueChecks.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/SceneVisibility.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ScreenMaterialGPU.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ScreenMaterialGate.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ShaderBytecodeCache.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ShaderPrewarm.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ShaderReuseGPUChecks.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ShaderStageLinkage.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ShadowCascadeGPU.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ShadowCascades.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ShadowReuseCache.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ShadowReuseState.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ShroudFogGPUChecks.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/ShroudMapping.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/SortedBufferGeometry.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/SortedColorPalette.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/SortedPacketBatch.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/SortedPaletteShaderSource.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/SortedRunTemplates.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/SortedWorldTranslation.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/StableDepthSort.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/StateSnapshot.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TemporalAA.hlsl
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TemporalAAGPU.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TemporalAAGPU.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TemporalAAGPUChecks.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TemporalAAShaderSource.h.in
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainCompactShaderSource.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainExclusionFilter.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainExclusionInputs.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainGrass.LICENSE.txt
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainGrass.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainGrass.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainGrass.hlsl
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainGrassBody.hlsli
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainLibraryGPUChecks.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainMaterialLibrary.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainMaterialLibrary.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainPreparation.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainPreparation.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainPrewarm.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainShadowPolicy.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainTileCache.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainUpload.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/TerrainUpload.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/VehicleWear.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/VehicleWearChecks.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/VertexJitterChecks.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/VertexShaderConstants.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/WeatherClimate.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/WeatherProbeState.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/WeatherProbes.cpp
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/WeatherSky.hlsl
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/WeatherState.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/XeGTAO-LICENSE.txt
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/XeGTAO.h
+- Core/Libraries/Source/WWVegas/WW3D2/Backend/D3D11/XeGTAO.hlsli
+- Core/Libraries/Source/WWVegas/WW3D2/GenZHRenderStates.h
+- Core/Libraries/Source/WWVegas/WW3D2/IndexBufferCounts.h
+- Core/Libraries/Source/WWVegas/WW3D2/NativeMeshLimits.h
+- Core/Libraries/Source/WWVegas/WW3D2/ShadowVertexParents.h
+- Core/Libraries/Source/WWVegas/WWLib/Except64.cpp
+- Core/Libraries/Source/debug/debug_except64.cpp
+- Core/Libraries/Source/debug/debug_stack64.cpp
+- Dependencies/D3D8Resource64/CMakeLists.txt
+- Dependencies/D3D8Resource64/LICENSE.md
+- Dependencies/D3D8Resource64/UPSTREAM.json
+- Dependencies/D3D8Resource64/res/d3d8.def
+- Dependencies/D3D8Resource64/res/d3d8to9.rc
+- Dependencies/D3D8Resource64/res/resource.h
+- Dependencies/D3D8Resource64/source/d3d8.hpp
+- Dependencies/D3D8Resource64/source/d3d8to9.cpp
+- Dependencies/D3D8Resource64/source/d3d8to9.hpp
+- Dependencies/D3D8Resource64/source/d3d8to9_base.cpp
+- Dependencies/D3D8Resource64/source/d3d8to9_device.cpp
+- Dependencies/D3D8Resource64/source/d3d8to9_index_buffer.cpp
+- Dependencies/D3D8Resource64/source/d3d8to9_surface.cpp
+- Dependencies/D3D8Resource64/source/d3d8to9_swap_chain.cpp
+- Dependencies/D3D8Resource64/source/d3d8to9_texture.cpp
+- Dependencies/D3D8Resource64/source/d3d8to9_vertex_buffer.cpp
+- Dependencies/D3D8Resource64/source/d3d8to9_volume.cpp
+- Dependencies/D3D8Resource64/source/d3d8types.cpp
+- Dependencies/D3D8Resource64/source/d3d8types.hpp
+- Dependencies/D3D8Resource64/source/d3dx9.hpp
+- Dependencies/D3D8Resource64/source/interface_query.cpp
+- Dependencies/D3D8Resource64/source/interface_query.hpp
+- Dependencies/D3D8Resource64/source/resource_interop.cpp
+- GeneralsMD/Code/GameEngine/Include/GameLogic/GeneralBonus.h
+- GeneralsMD/Code/GameEngine/Include/GameLogic/StateStream.h
+- GeneralsMD/Code/GameEngine/Source/Common/System/StackDump64.inl
+- GeneralsMD/Code/GameEngine/Source/GameLogic/System/GeneralBonus.cpp
+- GeneralsMD/Code/GameEngine/Source/GameLogic/System/StateStream.cpp
+- GeneralsMD/Code/Libraries/Source/WWVegas/WW3D2/meshraycast.h
+- GeneralsMD/Code/Main/GeometryPortChecks.cpp
+- GeneralsMD/Code/Main/PMH.ico
